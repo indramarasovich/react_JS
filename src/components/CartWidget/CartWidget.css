@@ -1,0 +1,15 @@
+.carrito img {
+    height: auto;
+    width: 40px;    
+}
+
+.carrito {
+    display: flex;
+    height: fit-content;
+    align-items: center;  
+    border-radius: 50%;  
+}
+
+.carrito:hover {
+    background-color: rgb(60, 102, 79);
+}

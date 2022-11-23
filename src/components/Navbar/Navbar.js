@@ -1,12 +1,20 @@
-import './Navbar.css'
+import './Navbar.css';
+import Lista from '../Lista/Lista'
+import CartWidget from '../CartWidget/CartWidget';
+
 
 const Navbar = () => {
+    const menu = ['HOME', 'ANILLOS', 'DIJES', 'AROS']
     return (
-        <nav>
-            <h1>MyApp</h1>
-            <button className='boton'> boton 1 </button>        
-        </nav>
+        <nav className="menubar">
+            <img src={'./img/logo.png'} />
+            <ul>
+                {menu.map(label => <Lista text={label}/>)}  
+            </ul>  
+            <CartWidget /> 
+        </nav>   
+             
     )
 }
 
-export default Navbar
+export default Navbar;

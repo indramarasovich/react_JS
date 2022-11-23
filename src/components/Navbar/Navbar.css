@@ -1,3 +1,11 @@
-.boton {
-    color: red;
+.menubar {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgba(216, 190, 157, 0.781);
+}
+
+img {
+    height: 70px;
+    width: auto;
 }
