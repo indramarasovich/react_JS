@@ -1,5 +1,5 @@
 import './CartWidget.css';
-import cartImg from './assets/cart.png'
+import cartImg from '../../assets/cart.png'
 
 const CartWidget = () => {
     return (

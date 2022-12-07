@@ -1,18 +1,22 @@
 import './Navbar.css';
-import Lista from '../Lista/Lista'
 import CartWidget from '../CartWidget/CartWidget';
-
+import { NavLink, useNavigate } from 'react-router-dom'
+import logo from '../../assets/logo.jpeg'
 
 const Navbar = () => {
-    const menu = ['HOME', 'ANILLOS', 'DIJES', 'AROS']
+    const navigate = useNavigate()
+
     return (
-        <nav className="menubar">
-            <img src={'./img/logo.png'} />
-            <ul>
-                {menu.map(label => <Lista text={label}/>)}  
-            </ul>  
-            <CartWidget /> 
-        </nav>   
+    <nav className="menubar">
+        <img src={logo} alt={'logo'} />
+        <ul>
+            <NavLink to='/detail' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>HOME</NavLink> 
+            <NavLink to='/detail' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>ANILLOS</NavLink> 
+            <NavLink to='/detail' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>DIJES</NavLink> 
+            <NavLink to='/detail' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>AROS</NavLink> 
+        </ul>  
+        <CartWidget /> 
+    </nav>   
              
     )
 }
