@@ -18,6 +18,7 @@ const ProdDetailContainer = () => {
 
     return (
         <div>
+            <img height="300px" src={prod?.img} alt={prod?.title} />
             <h1>{prod?.title}</h1>
             <h2>{prod?.category}</h2>
             <p>{prod?.text}</p>

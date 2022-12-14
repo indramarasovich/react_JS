@@ -1,25 +1,38 @@
+import './ProdContainer.css'
 import {useState, useEffect} from 'react';
 import ProdList from '../ProdList/ProdList';
-import { getProds } from '../../asyncMock';
+import { getProds, getProdsByCategory } from '../../asyncMock';
+import { useParams } from 'react-router-dom';
 
 const ProdContainer = () => {
     const [prods, setProds] = useState([])
 
-    useEffect(() => {
-        getProds()
-          .then(response => {
-            setProds(response)
-          })
-          .catch(error => {
-            console.log(error)
-          })
-    }, [])
-    
-    const arrayTransf = prods.map(prod => <h2 key={prod.id}>{prod.title}</h2>)
+    const { categoria } = useParams()
+    console.log(categoria)
 
+    useEffect(() => {
+      if(!categoria) {
+          getProds()
+            .then(response => {
+              setProds(response)
+            })
+            .catch(error => {
+              console.log(error)
+            })
+      } else {
+          getProdsByCategory(categoria)
+            .then(response => {
+              setProds(response)
+            })
+            .catch(error => {
+              console.log(error)
+            })
+      }
+    }, [categoria])
+    
     return(
-        <div>
-            <h2>Productos</h2>
+        <div className="Productos">
+            <h2>PRODUCTOS</h2>
             <ProdList prods={prods} />
         </div>
     )

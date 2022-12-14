@@ -3,17 +3,28 @@
     justify-content: space-around;
     padding: 20px;
     background-color: rgba(216, 190, 157, 0.781);
+    align-items: center;
 }
 
-Option{
+li{
     display: inline-block;
     padding: 0px 20px;
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.74);
-    font-size: 20px;
 }
 
-img {
-    height: 70px;
+.ActiveOption {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.74);
+    font-size: 25px;
+}
+
+.Option {
+    text-decoration: none;
+    color: rgba(87, 86, 86, 0.74);
+    font-size: 25px;
+}
+
+.menubar img {
+    height: 100px;
     width: auto;
+    border-radius: 50%;
 }
