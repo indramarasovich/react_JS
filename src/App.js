@@ -9,6 +9,7 @@ import { BookmarksProvider } from './context/BookmarksContext';
 import Login from './components/Login/Login';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
+import Cart from './components/Cart/Cart';
 
 function App() {
   
