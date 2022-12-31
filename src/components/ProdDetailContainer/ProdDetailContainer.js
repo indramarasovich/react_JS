@@ -1,27 +1,41 @@
-import { useState, useEffect } from 'react'
-import { getProdById } from '../../asyncMock'
+import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
+import { getDoc, doc } from 'firebase/firestore'
+import { db } from '../../services/firebase/firebaseConfig'
+import ProdDetail from '../ProdDetail/ProdDetail'
 
 const ProdDetailContainer = () => {
-    const [prod, setProd] = useState()
+    const [prod, setProd] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
+
     const { prodId } = useParams()
 
     useEffect(() => {
-        getProdById(prodId)
-            .then(response => {
-                setProd(response)
+        const docRef = doc(db, 'prods', prodId)
+
+        getDoc(docRef)
+            .then(doc => {
+                const data = doc.data()
+                const prodAdapted = { id: doc.id, ...data}
+
+                setProd(prodAdapted)
             })
             .catch(error => {
-                console.error(error)
+                console.log(error)
+            })
+            .finally(() => {
+                setIsLoading(false)
             })
     }, [prodId])
 
+    if(isLoading) {
+        return <h1>Cargando producto...</h1>
+      }
+
     return (
         <div>
-            <img height="300px" src={prod?.img} alt={prod?.title} />
-            <h1>{prod?.title}</h1>
-            <h2>{prod?.category}</h2>
-            <p>{prod?.text}</p>
+            <h1>Detalle del producto</h1>
+           <ProdDetail {...prod}/>
         </div>
     )
 }

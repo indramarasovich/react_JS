@@ -1,7 +1,7 @@
 .menubar {
     display: flex;
     justify-content: space-around;
-    padding: 20px;
+    padding: 10px;
     background-color: rgba(216, 190, 157, 0.781);
     align-items: center;
 }
@@ -23,7 +23,7 @@ li{
     font-size: 25px;
 }
 
-.menubar img {
+.imgcart {
     height: 100px;
     width: auto;
     border-radius: 50%;
